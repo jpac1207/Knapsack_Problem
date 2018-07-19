@@ -12,22 +12,27 @@ namespace Knapsack_Problem
 
         static void Main(string[] args)
         {
-            int n = 4;
-            int c = 60;
-            int[] pesos = { -1, 20, 20, 30, 30 };
-            int[] valores = { -1, 20, 30, 20, 40 };            
+            //int n = 4;
+            //int c = 60;
+            //int[] pesos = { -1, 20, 20, 30, 30 };
+            //int[] valores = { -1, 20, 30, 20, 40 };            
 
             //int n = 4;
+            //int c = 50;
             //int[] pesos = { -1, 40, 30, 20, 10 };
             //int[] valores = { -1, 840, 600, 400, 100 };
-            //int c = 50;
+
+            int n = 3;
+            int c = 4;
+            int[] pesos = { -1, 3, 2, 2 };
+            int[] valores = { -1, 5, 4, 2 };
 
             table = new int[n + 1][];
 
             for (int i = 0; i < n + 1; i++)
                 table[i] = new int[c + 1];
 
-            List<int> results  = Knapsack_Problem(pesos, valores, n, c);
+            List<int> results = Knapsack_Problem(pesos, valores, n, c);
 
             results.ForEach(x => Console.Write(x + ", "));
             Console.ReadKey();
