@@ -13,9 +13,9 @@ namespace Knapsack_Problem
         static void Main(string[] args)
         {
             int n = 4;
-            int[] pesos = { -1, 20, 20, 30, 30 };
-            int[] valores = { -1, 20, 30, 20, 40 };
             int c = 60;
+            int[] pesos = { -1, 20, 20, 30, 30 };
+            int[] valores = { -1, 20, 30, 20, 40 };            
 
             //int n = 4;
             //int[] pesos = { -1, 40, 30, 20, 10 };
