@@ -10,12 +10,15 @@ namespace Knapsack_Problem
     {
         static void Main(string[] args)
         {
-            KnapsackTest();
+            //KnapsackTest();
+
+            BackTracking.InitBoard(6);
+            BackTracking.Run(6, 0);
+            Console.ReadKey();
         }
 
         static void KnapsackTest()
         {
-
             //int n = 4;
             //int c = 60;
             //int[] pesos = { -1, 20, 20, 30, 30 };
