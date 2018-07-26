@@ -10,10 +10,11 @@ namespace Knapsack_Problem
     {
         static void Main(string[] args)
         {
-            //KnapsackTest();
-
-            BackTracking.InitBoard(6);
-            BackTracking.Run(6, 0);
+            KnapsackTest();
+            //BackTracking.InitBoard(6);
+            //BackTracking.NQueens(6, 0);
+            //BackTracking.FillLabyrinth(7);
+            //BackTracking.Labyrinth(7, 0);
             Console.ReadKey();
         }
 

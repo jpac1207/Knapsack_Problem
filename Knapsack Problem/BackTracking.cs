@@ -20,7 +20,7 @@ namespace Knapsack_Problem
             }
         }
 
-        public static void Run(int n, int col)
+        public static void NQueens(int n, int col)
         {
             //Console.WriteLine(n + "," + col);
 
@@ -41,7 +41,7 @@ namespace Knapsack_Problem
                 {
                     board[i][col] = 1;
                     //PrintBoard();
-                    Run(n, col + 1);
+                    NQueens(n, col + 1);
                     board[i][col] = 0;
                 }
                 //Console.WriteLine("---------------");
@@ -124,6 +124,81 @@ namespace Knapsack_Problem
             }
             //Console.WriteLine("---------------");
             Console.ReadKey();
+        }
+
+        public static void Labyrinth(int n, int col)
+        {
+            if (col == n)
+            {
+                Console.WriteLine("Final: ");
+                PrintBoard();
+                return;
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                if (IsPath(i, col))
+                {
+                    int prev = board[i][col];
+                    board[i][col] = 2;
+                    PrintBoard();
+                    Labyrinth(n, col + 1);
+
+                    if (board[i + 1][col] == 0)
+                        board[i][col] = 2;
+                    else
+                    {
+                        board[i][col] = prev;
+                    }
+                }
+            }
+        }
+
+        public static bool IsPath(int i, int col)
+        {
+            if (board[i][col] != 0)
+                return false;
+
+            try
+            {
+                if (board[i][col - 1] == 2)
+                    return true;
+            }
+            catch (Exception)
+            {
+                if (col == 0)
+                    return true;
+            }
+
+            try
+            {
+                if (board[i - 1][col] == 2)
+                    return true;
+            }
+            catch (Exception) { }
+
+            return false;
+        }
+
+        public static void FillLabyrinth(int n)
+        {
+            board = new int[n][];
+
+            for (int i = 0; i < n; i++)
+            {
+                board[i] = new int[n];
+                for (int j = 0; j < n; j++)
+                {
+                    if (i == n - (n / 2) && j < n - 1)
+                        board[i][j] = 0;
+                    else if (i == (n / 2) + 2 && (j == n - 1 || j == n - 2))
+                        board[i][j] = 0;
+                    else
+                        board[i][j] = 1;
+                }
+            }
+
+            PrintBoard();
         }
     }
 }
